@@ -1,6 +1,5 @@
 // Array Flattening - Specific Layer
 var flatten = (array) => {
-  let exchangeArr = [];
 
   // console.log(`Array: ${array}`)
 
@@ -10,7 +9,7 @@ var flatten = (array) => {
       if(!(elem.length)){
           if(elem){
               string += elem;
-              // console.log(`1: Adding ${string}...`)
+              console.log(`1: Adding ${string}...`)
               return string + ' '
           }
       // If the element is a string
@@ -18,25 +17,22 @@ var flatten = (array) => {
       } else if(typeof elem == "string"){
           if(elem){
               string += elem;
-              // console.log(`2: Adding ${string}...`)
+              console.log(`2: Adding ${string}...`)
               return string + ' '
           }
       // The element must be an array
       // We have to go deeper
       } else {
-          // console.log(`Going deeper with elem: '${elem}' from array: '${array}'`)
-          exchangeArr = flatten(elem);
-          for(let k = 0; k < exchangeArr.length; k++){
-              if(exchangeArr[k]){
-                  string += exchangeArr[k];
-              }
-          }
-          // console.log(`3: Adding ${string}...`)
+          console.log(`Going deeper with elem: '${elem}' from array: '${array}'`)
+          string += flatten(elem)
+
+
+          console.log(`3: Adding ${string}...`)
           return string;
       }
   },"")
 }
 console.log();
-console.log("Original array:  [1, [2], [3, [[4]]]] \t\t\t\tFlattened Array: " + flatten([1,[2],[3,[[4]]]]));
+console.log("Original array:  [1, [2], [3, [[4,5,6],8]]] \t\t\t\tFlattened Array: " + flatten([1, [2], [3, [[4,5,6],8]]]));
 console.log("Original array:  ['1', ['b'], [8, [[13]],[true]]] \t\tFlattened Array: " + flatten(['1', ['b'], [8, [[13]],[true]]]));
 console.log();

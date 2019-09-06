@@ -12,7 +12,7 @@
 
 
 ## Pros
-- Allows elegant solutions in specific contexts
+- Allows elegant solutions in specific contexts often reducing the amount of written code
 - In some languages, like Haskell, it's the only option for repeating code blocks
 - When you need an approach to handle multiple unknown layers of scope
   - Such as object and/or array nesting
